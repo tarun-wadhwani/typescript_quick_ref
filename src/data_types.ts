@@ -270,6 +270,42 @@ strLietral2 = "three";
 // strLietral2 = 'four'; // <- error
 
 // ----------
+// intersection types
+// ----------
+// create a new type by combining them.
+// type typeAB = typeA & typeB
+type BusinessPartner = {
+  name: string;
+  credit: number;
+};
+
+type Identity = {
+  id: number;
+  name: string;
+};
+
+type Contact = {
+  email: string;
+  phone: string;
+};
+
+type Products = Array<{
+  id: number;
+  name: string;
+  price: number;
+}>;
+
+type Employee = Identity & Contact;
+type Customer = BusinessPartner & Contact;
+let e: Employee = {
+  id: 100,
+  name: "John Doe",
+  email: "john.doe@email.com",
+  phone: "(123)-456-7890",
+  // something: 'abc',  // <- error.
+};
+
+// ----------
 // never
 // ----------
 // never holds no value like empty set. Its not like null

@@ -56,12 +56,12 @@ class BankAccount {
 class SavingsAccount extends BankAccount {
   public addInterest(rate: number) {
     this.balance += this.balance * rate; // ✅ Allowed ('protected')
-    // console.log(this.pin);            // ❌ Error ('private')
+    // console.log(this.pin);     // ❌ Error ('private')
   }
 }
 
 const account = new BankAccount(Date.now(), "Aarav", 5000, 1234);
 console.log(account.owner); // ✅ Allowed ('public')
-// console.log(account.balance); // ❌ Error ('protected')
-// console.log(account.pin);     // ❌ Error ('private')
-// account.currency = "USD";     // ❌ Error ('readonly')
+// console.log(account.balance);  // ❌ Error ('protected')
+// console.log(account.pin);      // ❌ Error ('private')
+// account.currency = "USD";      // ❌ Error ('readonly')
